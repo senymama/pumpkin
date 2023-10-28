@@ -77,7 +77,6 @@ public class Trigger : MonoBehaviour
         yield return new WaitForSeconds(teleportationTime * 0.12f);
         _SpriteRenderer.enabled = false;
         _CameraTrack.isTrackingActivate = true;
-        _PlayerController.isActivate = true;
     }
 
     private IEnumerator attenuation()
@@ -103,5 +102,6 @@ public class Trigger : MonoBehaviour
             yield return null;
             time -= Time.deltaTime;
         }
+        _PlayerController.isActivate = true;
     }
 }
