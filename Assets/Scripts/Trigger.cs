@@ -12,32 +12,41 @@ public class Trigger : MonoBehaviour
     public Transform CameraPoint;
 
     [Tooltip("Должна ли камера следить за персонажем (false - для маленьких локаций, true - для больших)")]
-    public bool isCameraStatic;
+    public bool isCameraDynamic;
 
     public float teleportationTime = 0f;
 
     [SerializeField]
+    private GameObject _Camera;
     private Transform _CameraTransform;
-    [SerializeField]
-    private CameraTracking _Camera;
+    private CameraTracking _CameraTrack;
 
     [SerializeField]
     private Image _Image;
 
     [SerializeField]
+    private GameObject _Player;
     private Transform _PlayerTransform;
-    [SerializeField]
     private MyCharacterController _PlayerController;
+
+    private void Start()
+    {
+        _PlayerController = _Player.GetComponent<MyCharacterController>();
+        _PlayerTransform = _Player.transform;
+
+        _CameraTransform = _Camera.transform;
+        _CameraTrack = _Camera.GetComponent<CameraTracking>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             _PlayerController.isActivate = false;
-            _Camera.isTrackingActivate = false;
+            _PlayerController.StopMove();
+            _CameraTrack.isTrackingActivate = false;
             StartCoroutine(TeleportCoroutine());
         }
-
     }
 
     private IEnumerator TeleportCoroutine()
@@ -51,15 +60,16 @@ public class Trigger : MonoBehaviour
     private void _teleport()
     {
         _PlayerTransform.position = EntryPoint.position;
-        if (isCameraStatic)
+        if (isCameraDynamic)
         {
-            _Camera.isTrackingActivate = true;
+            _CameraTrack.isTrackingActivate = true;
             _CameraTransform.position = EntryPoint.position;
         }
         else
         {
             _CameraTransform.position = CameraPoint.position;
         }
+        _PlayerController.isActivate = true;
     }
 
     private IEnumerator attenuation()

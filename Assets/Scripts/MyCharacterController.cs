@@ -22,4 +22,9 @@ public class MyCharacterController : MonoBehaviour
             _rb.velocity = new Vector2(_HorizontalInput, _VerticalInput) * Speed;
         }
     }
+
+    public void StopMove()
+    {
+        _rb.velocity = Vector2.zero;
+    }
 }
