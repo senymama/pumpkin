@@ -9,13 +9,9 @@ public class MyCharacterController : MonoBehaviour
 
     private float _VerticalInput;
     private float _HorizontalInput;
+    [SerializeField]
     private Rigidbody2D _rb;
 
-    void Start()
-    {
-        _rb = GetComponent<Rigidbody2D>();
-    }
-    
     void FixedUpdate()
     {
         _VerticalInput = Input.GetAxis("Vertical");
