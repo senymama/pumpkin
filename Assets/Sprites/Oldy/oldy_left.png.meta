@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3271b282e31243d47b91a8ba44ff85aa
+guid: 0001c0b80c6962e499a8d1e5b0887797
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -149,13 +149,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wardrobe_0
+      name: oldy_left_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 36
-        width: 80
-        height: 48
+        x: 37
+        y: 21
+        width: 25
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 959b7cb3d384bb549a6d1f1eec221798
-      internalID: 546482419
+      spriteID: be8fce0ca054f7e40ab7630a3e19b594
+      internalID: -279676306
       vertices: []
       indices: 
       edges: []
@@ -180,7 +180,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      wardrobe_0: 546482419
+      oldy_left_0: -279676306
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
