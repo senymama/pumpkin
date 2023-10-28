@@ -7,7 +7,7 @@ public class LocationInfo : ScriptableObject
     public Vector2 EntryPoint;
     [Tooltip("Позиция где будет перемещенна камера")]
     public Vector2 CameraPoint;
-    [Tooltip("Должна ли камера следить за персонажем (false - для маленьких локаций, true - для больших)")]
+    [Tooltip("Должна ли камера следить за персонажем (true - для маленьких локаций, false - для больших)")]
     public bool isCameraStatic;
     [Tooltip("Локация в которую будет перемещен персонаж при выходе")]
     public LocationInfo ExitLocation;
