@@ -59,26 +59,47 @@ public class Trigger : MonoBehaviour
 
     private void _teleport()
     {
-        _PlayerTransform.position = EntryPoint.position;
+        _PlayerTransform.position = new Vector3(EntryPoint.position.x, EntryPoint.position.y, _PlayerTransform.position.z);
         if (isCameraDynamic)
         {
-            _CameraTrack.isTrackingActivate = true;
+            _CameraTrack.isTrackingPlayer = true;
             _CameraTransform.position = EntryPoint.position;
+            _CameraTrack.TargetPosition = EntryPoint;
         }
         else
         {
-            _CameraTransform.position = CameraPoint.position;
+            _CameraTransform.position = EntryPoint.position;
+            _CameraTrack.isTrackingPlayer = false;
+            _CameraTrack.TargetPosition = CameraPoint;
         }
-        _PlayerController.isActivate = true;
     }
 
     private IEnumerator attenuation()
     {
-        yield return null;
+        _Image.enabled = true;
+        float time = 0;
+        while (time < teleportationTime / 2)
+        {
+            Color c = _Image.color;
+            _Image.color = new Color(c.r, c.g, c.b, (2 * time / teleportationTime));
+            yield return null;
+            time += Time.deltaTime;
+        }
     }
 
     private IEnumerator manifestation()
     {
-        yield return null;
+        float time = teleportationTime / 2;
+        while (time > 0)
+        {
+            Color c = _Image.color;
+            _Image.color = new Color(c.r, c.g, c.b, (2 * time / teleportationTime));
+            yield return null;
+            time -= Time.deltaTime;
+        }
+        _Image.enabled = false;
+        _CameraTrack.isTrackingActivate = true;
+        yield return new WaitForFixedUpdate();
+        _PlayerController.isActivate = true;
     }
 }

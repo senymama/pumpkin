@@ -2683,7 +2683,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EntryPoint: {fileID: 839152582}
   CameraPoint: {fileID: 0}
-  isCameraDynamic: 0
+  isCameraDynamic: 1
   teleportationTime: 1
   _Camera: {fileID: 519420028}
   _Image: {fileID: 1580780492}
@@ -2887,7 +2887,7 @@ Transform:
   m_GameObject: {fileID: 848589600}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 1.98, y: -2.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3012,7 +3012,7 @@ Canvas:
   m_GameObject: {fileID: 1264704709}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 519420031}
   m_PlaneDistance: 1
   m_PixelPerfect: 0
@@ -3073,13 +3073,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6634fbda456a37d42834cada5e53e19e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EntryPoint: {fileID: 0}
+  EntryPoint: {fileID: 1435933622}
   CameraPoint: {fileID: 0}
-  isCameraDynamic: 0
+  isCameraDynamic: 1
   teleportationTime: 1
-  _Camera: {fileID: 0}
-  _Image: {fileID: 0}
-  _Player: {fileID: 0}
+  _Camera: {fileID: 519420028}
+  _Image: {fileID: 1580780492}
+  _Player: {fileID: 1430782088}
 --- !u!114 &1351475146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3350,7 +3350,7 @@ MonoBehaviour:
   EntryPoint: {fileID: 92608286}
   CameraPoint: {fileID: 0}
   isCameraDynamic: 1
-  teleportationTime: 0.5
+  teleportationTime: 1
   _Camera: {fileID: 519420028}
   _Image: {fileID: 1580780492}
   _Player: {fileID: 1430782088}
@@ -5445,7 +5445,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.5, y: -0.5}
-  m_SizeDelta: {x: 1254, y: 682}
+  m_SizeDelta: {x: 5000, y: 3500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1580780492
 MonoBehaviour:
@@ -5460,15 +5460,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5283019, g: 0.43609828, b: 0.43609828, a: 1}
+  m_Color: {r: 0.25490198, g: 0.1943517, b: 0.1764706, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300962, guid: 39215ed5ac24aac4dba931a105816145, type: 3}
-  m_Type: 2
+  m_Sprite: {fileID: 21300204, guid: 39215ed5ac24aac4dba931a105816145, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5497,7 +5497,7 @@ GameObject:
   m_Layer: 0
   m_Name: Room2 Camera entry
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -5510,7 +5510,7 @@ Transform:
   m_GameObject: {fileID: 1611498204}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5563,10 +5563,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6634fbda456a37d42834cada5e53e19e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EntryPoint: {fileID: 92608286}
-  CameraPoint: {fileID: 0}
+  EntryPoint: {fileID: 848589601}
+  CameraPoint: {fileID: 1611498205}
   isCameraDynamic: 0
-  teleportationTime: 0.5
+  teleportationTime: 1
   _Camera: {fileID: 519420028}
   _Image: {fileID: 1580780492}
   _Player: {fileID: 1430782088}

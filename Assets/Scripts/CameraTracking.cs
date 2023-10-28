@@ -36,6 +36,7 @@ public class CameraTracking : MonoBehaviour
                     _Target = new Vector3(TargetPosition.position.x, TargetPosition.position.y, _z);
                 }
                 transform.position = Vector3.Lerp(transform.position, _Target, Time.deltaTime * speed);
+                transform.position = new Vector3(transform.position.x, transform.position.y, _z);
             }
             yield return null;
         }
