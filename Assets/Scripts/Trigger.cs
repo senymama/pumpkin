@@ -22,7 +22,8 @@ public class Trigger : MonoBehaviour
     private CameraTracking _CameraTrack;
 
     [SerializeField]
-    private Image _Image;
+    private GameObject _Image;
+    private SpriteRenderer _SpriteRenderer;
 
     [SerializeField]
     private GameObject _Player;
@@ -36,6 +37,8 @@ public class Trigger : MonoBehaviour
 
         _CameraTransform = _Camera.transform;
         _CameraTrack = _Camera.GetComponent<CameraTracking>();
+
+        _SpriteRenderer = _Image.GetComponent<SpriteRenderer>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -53,35 +56,38 @@ public class Trigger : MonoBehaviour
     {
         StartCoroutine(attenuation());
         yield return new WaitForSeconds(teleportationTime/2);
-        _teleport();
+        StartCoroutine(Teleport());
         StartCoroutine(manifestation());
     }
 
-    private void _teleport()
+    private IEnumerator Teleport()
     {
         _PlayerTransform.position = new Vector3(EntryPoint.position.x, EntryPoint.position.y, _PlayerTransform.position.z);
+        _CameraTransform.position = new Vector3(EntryPoint.position.x, EntryPoint.position.y, _CameraTransform.position.z);
         if (isCameraDynamic)
         {
             _CameraTrack.isTrackingPlayer = true;
-            _CameraTransform.position = EntryPoint.position;
             _CameraTrack.TargetPosition = EntryPoint;
         }
         else
         {
-            _CameraTransform.position = EntryPoint.position;
             _CameraTrack.isTrackingPlayer = false;
             _CameraTrack.TargetPosition = CameraPoint;
         }
+        yield return new WaitForSeconds(teleportationTime * 0.12f);
+        _SpriteRenderer.enabled = false;
+        _CameraTrack.isTrackingActivate = true;
+        _PlayerController.isActivate = true;
     }
 
     private IEnumerator attenuation()
     {
-        _Image.enabled = true;
+        _SpriteRenderer.enabled = true;
         float time = 0;
         while (time < teleportationTime / 2)
         {
-            Color c = _Image.color;
-            _Image.color = new Color(c.r, c.g, c.b, (2 * time / teleportationTime));
+            Color c = _SpriteRenderer.color;
+            _SpriteRenderer.color = new Color(c.r, c.g, c.b, (2 * time / teleportationTime));
             yield return null;
             time += Time.deltaTime;
         }
@@ -92,14 +98,10 @@ public class Trigger : MonoBehaviour
         float time = teleportationTime / 2;
         while (time > 0)
         {
-            Color c = _Image.color;
-            _Image.color = new Color(c.r, c.g, c.b, (2 * time / teleportationTime));
+            Color c = _SpriteRenderer.color;
+            _SpriteRenderer.color = new Color(c.r, c.g, c.b, (2 * time / teleportationTime));
             yield return null;
             time -= Time.deltaTime;
         }
-        _Image.enabled = false;
-        _CameraTrack.isTrackingActivate = true;
-        yield return new WaitForFixedUpdate();
-        _PlayerController.isActivate = true;
     }
 }
