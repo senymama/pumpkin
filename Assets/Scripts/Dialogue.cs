@@ -7,16 +7,9 @@ public class Dialogue : MonoBehaviour
 {
     [SerializeField]
     private GameObject _Camera;
-    private CameraTracking _CameraTrack;
 
     [SerializeField]
     private GameObject _Player;
-    private Transform _PlayerTransform;
-
-    [SerializeField]
-    private GameObject _Image;
-
-    public float teleportationTime = 0f;
 
     public TextMeshProUGUI textComponent;
     public List<string> lines;
@@ -57,6 +50,7 @@ public class Dialogue : MonoBehaviour
     IEnumerator TypeLine()
     {
         //Символы печатаются по одному
+        yield return new WaitForSeconds(textSpeed*2);
         foreach (char c in lines[index].ToCharArray())
         {
             textComponent.text += c;
@@ -76,8 +70,8 @@ public class Dialogue : MonoBehaviour
         {
             _Player.GetComponent<MyCharacterController>().isActivate = true;
             CameraTracking _CameraTrack = _Camera.GetComponent<CameraTracking>();
-            StartCoroutine(_CameraTrack.CameraTeleportCoroutine(_Player.transform, _Image, teleportationTime, true));
             _CameraTrack.isTrackingActivate = true;
+            _CameraTrack.isTrackingPlayer = true;
             gameObject.SetActive(false);
         }
     }
