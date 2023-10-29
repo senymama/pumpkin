@@ -12338,7 +12338,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a4601c274f67624f880b8956cee9353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 3
+  renderer: {fileID: 143317845}
+  sprites:
+  - {fileID: 1170267329, guid: 756e775e20f52fa4ebeb36b22f76834a, type: 3}
+  - {fileID: -1323155378, guid: 4461799e67fa1844a9ba84224ab1aadc, type: 3}
+  - {fileID: 1808626579, guid: be54769caa1d90e44b22c7f580c9a318, type: 3}
+  - {fileID: 627554928, guid: 61ad1442403aace41b3bef730b9d4351, type: 3}
+  Speed: 4
   isActivate: 1
   _rb: {fileID: 1430782091}
 --- !u!4 &1430782093
