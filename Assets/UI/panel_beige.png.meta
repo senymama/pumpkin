@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -45,7 +45,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -147,7 +147,196 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: panel_beige_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 66.66667
+        width: 33.333332
+        height: 33.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44a48bc882fd7214e95357788156b25c
+      internalID: -1057976942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panel_beige_1
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 66.66667
+        width: 33.333332
+        height: 33.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f73c531fe9845a4e9bb95e5e691eee5
+      internalID: -984071350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panel_beige_2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 66.66667
+        width: 33.333332
+        height: 33.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cabdaad4cd8e3c74c8a7f4f4b90c3213
+      internalID: -1836300569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panel_beige_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 33.666668
+        width: 33.333332
+        height: 33.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fc618d49f689c74d9c67ec8155cb856
+      internalID: -694233442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panel_beige_4
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 33.666668
+        width: 33.333332
+        height: 33.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39d8cf447fc5f2944bd382b3ebfe4822
+      internalID: 128159642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panel_beige_5
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 33.666668
+        width: 33.333332
+        height: 33.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c60e820b59a04fd42a8ca0888a2b685c
+      internalID: -1942576221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panel_beige_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.66666794
+        width: 33.333332
+        height: 33.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a342781ce7fd4c54b86ca1b4b1340aa1
+      internalID: -1549187024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panel_beige_7
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 0.66666794
+        width: 33.333332
+        height: 33.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dd17252015117447a2faff2a87fbd94
+      internalID: 1371499927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panel_beige_8
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 0.66666794
+        width: 33.333332
+        height: 33.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a98be74f858cb945b90fefeefdd9166
+      internalID: 1319806854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -158,7 +347,16 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      panel_beige_0: -1057976942
+      panel_beige_1: -984071350
+      panel_beige_2: -1836300569
+      panel_beige_3: -694233442
+      panel_beige_4: 128159642
+      panel_beige_5: -1942576221
+      panel_beige_6: -1549187024
+      panel_beige_7: 1371499927
+      panel_beige_8: 1319806854
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
