@@ -7759,7 +7759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Camera: {fileID: 519420028}
   _Player: {fileID: 1430782088}
-  CameraPoint: {fileID: 0}
+  CameraPoint: {fileID: 1247986135}
   _Image: {fileID: 1362114029}
   teleportationTime: 0.1
   text:
