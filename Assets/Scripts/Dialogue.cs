@@ -3,10 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Dialogue : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject _Camera;
+    private CameraTracking _CameraTrack;
+
+    [SerializeField]
+    private GameObject _Player;
+    private Transform _PlayerTransform;
+
+    [SerializeField]
+    private GameObject _Image;
+
+    public float teleportationTime = 0f;
+
     public TextMeshProUGUI textComponent;
-    public string[] lines;
+    public List<string> lines;
     public float textSpeed;
 
     private int index; //На каком мы моменте диалога
@@ -14,13 +27,13 @@ public class NewBehaviourScript : MonoBehaviour
     void Start()
     {
         textComponent.text = string.Empty;
-        StartDialogue();
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (gameObject.activeSelf && Input.GetMouseButtonDown(0))
         {
+            
             if (textComponent.text == lines[index])
             {
                 NextLine();
@@ -33,9 +46,10 @@ public class NewBehaviourScript : MonoBehaviour
         }
     }
 
-    void StartDialogue()
+    public void StartDialogue()
     {
         index = 0;
+        gameObject.SetActive(true);
         StartCoroutine(TypeLine());
     }
 
@@ -51,7 +65,7 @@ public class NewBehaviourScript : MonoBehaviour
 
     void NextLine()
     {
-        if (index < lines.Length - 1)
+        if (index < lines.Count - 1)
         {
             index++;
             textComponent.text = string.Empty;
@@ -59,6 +73,10 @@ public class NewBehaviourScript : MonoBehaviour
         }
         else
         {
+            _Player.GetComponent<MyCharacterController>().isActivate = true;
+            CameraTracking _CameraTrack = _Camera.GetComponent<CameraTracking>();
+            StartCoroutine(_CameraTrack.CameraTeleportCoroutine(_Player.transform, _Image, teleportationTime, true));
+            _CameraTrack.isTrackingActivate = true;
             gameObject.SetActive(false);
         }
     }

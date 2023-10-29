@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraTracking : MonoBehaviour
 {
     [SerializeField]
+    private GameObject _PlayerObj;
     private Transform _player;
     public Transform TargetPosition;
     public bool isTrackingPlayer = true;
@@ -29,7 +30,7 @@ public class CameraTracking : MonoBehaviour
             {
                 if (isTrackingPlayer)
                 {
-                    _Target = new Vector3(_player.position.x, _player.position.y, _z);
+                    _Target = new Vector3(_PlayerObj.transform.position.x, _PlayerObj.transform.position.y, _z);
                 }
                 else
                 {
@@ -40,5 +41,55 @@ public class CameraTracking : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    public IEnumerator CameraTeleportCoroutine(Transform pos, GameObject _Image, float teleportationTime, bool isReturnControl)
+    {
+        SpriteRenderer _SpriteRenderer = _Image.GetComponent<SpriteRenderer>();
+
+        MyCharacterController _PlayerController = _PlayerObj.GetComponent<MyCharacterController>();
+
+        CameraTracking _CameraTrack = GetComponent<CameraTracking>();
+
+        StartCoroutine(attenuation(_SpriteRenderer, teleportationTime));
+        yield return new WaitForSeconds(teleportationTime / 2);
+        StartCoroutine(CameraTeleport(pos, teleportationTime, transform, _CameraTrack, _SpriteRenderer));
+        StartCoroutine(manifestation(_SpriteRenderer, teleportationTime, _PlayerController, isReturnControl));
+    }
+
+    private IEnumerator CameraTeleport(Transform pos, float teleportationTime, Transform _CameraTransform, CameraTracking _CameraTrack, SpriteRenderer _SpriteRenderer)
+    {
+        _CameraTransform.position = new Vector3(pos.position.x, pos.position.y, _CameraTransform.position.z);
+        _CameraTrack.isTrackingPlayer = false;
+        _CameraTrack.TargetPosition = pos;
+        yield return new WaitForSeconds(teleportationTime * 0.12f);
+        _SpriteRenderer.enabled = false;
+        _CameraTrack.isTrackingActivate = true;
+    }
+
+    private IEnumerator attenuation(SpriteRenderer _SpriteRenderer, float teleportationTime)
+    {
+        _SpriteRenderer.enabled = true;
+        float time = 0;
+        while (time < teleportationTime / 2)
+        {
+            Color c = _SpriteRenderer.color;
+            _SpriteRenderer.color = new Color(c.r, c.g, c.b, (2 * time / teleportationTime));
+            yield return null;
+            time += Time.deltaTime;
+        }
+    }
+
+    private IEnumerator manifestation(SpriteRenderer _SpriteRenderer, float teleportationTime, MyCharacterController _PlayerController, bool isReturnControl)
+    {
+        float time = teleportationTime / 2;
+        while (time > 0)
+        {
+            Color c = _SpriteRenderer.color;
+            _SpriteRenderer.color = new Color(c.r, c.g, c.b, (2 * time / teleportationTime));
+            yield return null;
+            time -= Time.deltaTime;
+        }
+        _PlayerController.isActivate = isReturnControl;
     }
 }
