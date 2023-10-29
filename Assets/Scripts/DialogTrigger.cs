@@ -42,7 +42,7 @@ public class DialogTrigger : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (isautoStart)
+            if (isAutoStart)
             {
                 _PlayerController.isActivate = false;
                 _PlayerController.StopMove();
