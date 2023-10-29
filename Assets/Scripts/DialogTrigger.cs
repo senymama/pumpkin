@@ -31,9 +31,25 @@ public class DialogTrigger : MonoBehaviour
         _Dialog = _DialogBox.GetComponent<Dialogue>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
+        {
+
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player" && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
         {
             _PlayerController.isActivate = false;
             _PlayerController.StopMove();
@@ -49,7 +65,5 @@ public class DialogTrigger : MonoBehaviour
 
             _Dialog.StartDialogue();
         }
-    }
-
-    
+    }  
 }
