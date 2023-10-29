@@ -17,6 +17,9 @@ public class Dialogue : MonoBehaviour
 
     private int index; //На каком мы моменте диалога
 
+    public AudioClip dialogueClip;
+    public AudioSource audioSource;
+
     void Start()
     {
         textComponent.text = string.Empty;
@@ -50,6 +53,8 @@ public class Dialogue : MonoBehaviour
 
     IEnumerator TypeLine()
     {
+        audioSource.clip = dialogueClip;
+        audioSource.Play();
         //Символы печатаются по одному
         yield return new WaitForSeconds(textSpeed*2);
         foreach (char c in lines[index].ToCharArray())
@@ -57,6 +62,7 @@ public class Dialogue : MonoBehaviour
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
+        audioSource.Stop();
     }
 
     void NextLine()
@@ -76,4 +82,6 @@ public class Dialogue : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
+
 }
