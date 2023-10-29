@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class MyCharacterController : MonoBehaviour
 {
+    public SpriteRenderer renderer;
+    public Sprite[] sprites;
     [Min(0f)]
     public float Speed = 1.0f;
 
@@ -16,8 +18,23 @@ public class MyCharacterController : MonoBehaviour
     {
         if (isActivate)
         {
-            _VerticalInput = Input.GetAxis("Vertical");
-            _HorizontalInput = Input.GetAxis("Horizontal");
+            
+            _VerticalInput = Input.GetAxisRaw("Vertical");
+            _HorizontalInput = Input.GetAxisRaw("Horizontal");
+
+            if (_VerticalInput > 0)
+            {
+                renderer.sprite = sprites[0];
+            } else if (_VerticalInput < 0)
+            {
+                renderer.sprite = sprites[1];
+            } else if(_HorizontalInput > 0)
+            {
+                renderer.sprite = sprites[3];
+            } else if (_HorizontalInput < 0)
+            {
+                renderer.sprite = sprites[2];
+            }
 
             _rb.velocity = new Vector2(_HorizontalInput, _VerticalInput) * Speed;
         }
