@@ -18,9 +18,13 @@ public class DialogTrigger : MonoBehaviour
 
     public List<string> text;
 
+    public GameObject keys;
+
     [SerializeField]
     private GameObject _DialogBox;
     private Dialogue _Dialog;
+
+    private bool isActive = false;
 
     private void Start()
     {
@@ -29,11 +33,33 @@ public class DialogTrigger : MonoBehaviour
         _CameraTrack = _Camera.GetComponent<CameraTracking>();
 
         _Dialog = _DialogBox.GetComponent<Dialogue>();
+
+        keys.SetActive(false);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log(1);
         if (collision.gameObject.tag == "Player")
+        {
+            isActive = true;
+            keys.SetActive(true);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        Debug.Log(0);
+        if (collision.gameObject.tag == "Player")
+        {
+            isActive = false;
+            keys.SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        if (isActive && (Input.GetButtonDown("z") || Input.GetButtonDown("v")))
         {
             _PlayerController.isActivate = false;
             _PlayerController.StopMove();
@@ -50,6 +76,4 @@ public class DialogTrigger : MonoBehaviour
             _Dialog.StartDialogue();
         }
     }
-
-    
 }
