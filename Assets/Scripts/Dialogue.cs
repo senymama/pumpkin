@@ -41,6 +41,7 @@ public class Dialogue : MonoBehaviour
 
     public void StartDialogue()
     {
+        StopAllCoroutines();
         textComponent.text = string.Empty;
         index = 0;
         gameObject.SetActive(true);

@@ -18,27 +18,69 @@ public class DialogTrigger : MonoBehaviour
 
     public List<string> text;
 
+    public GameObject keys;
+
     [SerializeField]
     private GameObject _DialogBox;
     private Dialogue _Dialog;
 
+    public bool isAutoStart;
+
+    private bool isActive = false;
+
     private void Start()
     {
         _PlayerController = _Player.GetComponent<MyCharacterController>();
-        
+
         _CameraTrack = _Camera.GetComponent<CameraTracking>();
 
         _Dialog = _DialogBox.GetComponent<Dialogue>();
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+        keys.SetActive(false);
+    }
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
+        {
+            if (isautoStart)
+            {
+                _PlayerController.isActivate = false;
+                _PlayerController.StopMove();
+
+                _CameraTrack.isTrackingActivate = false;
+                if (CameraPoint != null)
+                {
+                    _CameraTrack.isTrackingPlayer = false;
+                    _CameraTrack.TargetPosition = CameraPoint;
+                }
+
+                _Dialog.lines = text;
+
+                _Dialog.StartDialogue();
+            }
+            else
+            {
+                isActive = true;
+                keys.SetActive(true);
+            }
+        }
+    }
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            isActive = false;
+            keys.SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        if (isActive && (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.V)))
         {
             _PlayerController.isActivate = false;
             _PlayerController.StopMove();
 
-            _CameraTrack.isTrackingActivate = false;
             if (CameraPoint != null)
             {
                 _CameraTrack.isTrackingPlayer = false;
@@ -50,6 +92,4 @@ public class DialogTrigger : MonoBehaviour
             _Dialog.StartDialogue();
         }
     }
-
-    
 }
