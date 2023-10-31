@@ -32,10 +32,12 @@ public class Dialogue : MonoBehaviour
             
             if (textComponent.text == lines[index])
             {
+                audioSource.Stop();
                 NextLine();
             }
             else
             {
+                audioSource.Stop();
                 StopAllCoroutines();
                 textComponent.text = lines[index];
             }

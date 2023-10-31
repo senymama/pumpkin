@@ -67,7 +67,7 @@ public class CameraTracking : MonoBehaviour
         _CameraTrack.isTrackingActivate = true;
     }
 
-    private IEnumerator attenuation(SpriteRenderer _SpriteRenderer, float teleportationTime)
+    public IEnumerator attenuation(SpriteRenderer _SpriteRenderer, float teleportationTime)
     {
         _SpriteRenderer.enabled = true;
         float time = 0;
